@@ -6,12 +6,11 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
+// Get user from localStorage
 const getStoredUser = () => {
   try {
     const storedUser = localStorage.getItem("user");
-    if (!storedUser || storedUser === "undefined") {
-      return null;
-    }
+    if (!storedUser || storedUser === "undefined") return null;
     return JSON.parse(storedUser);
   } catch {
     return null;
@@ -21,15 +20,12 @@ const getStoredUser = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(getStoredUser());
 
-  // ✅ REGISTER FUNCTION
   const register = async (formData) => {
     const response = await fetch(
-      "http://localhost:5000/api/auth/register",
+      `${import.meta.env.VITE_API_URL}/api/auth/register`, // updated URL
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       }
     );
@@ -43,15 +39,12 @@ export const AuthProvider = ({ children }) => {
     return data;
   };
 
-  // ✅ LOGIN FUNCTION
   const login = async (formData) => {
     const response = await fetch(
-      "http://localhost:5000/api/auth/login",
+      `${import.meta.env.VITE_API_URL}/api/auth/login`, // updated URL
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       }
     );
