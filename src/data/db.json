@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "a513",
+      "name": "Khanak",
+      "email": "khanak.gupta1911@gmail.com",
+      "password": "blabla@123"
+    },
+    {
+      "id": "cdfc",
+      "name": "Riya Sharma",
+      "email": "riyasharma@gmail.com",
+      "password": "987987"
+    },
+    {
+      "id": "0bef",
+      "name": "simran",
+      "email": "simran@gmail.com",
+      "password": "12341234"
+    }
+  ]
+}
